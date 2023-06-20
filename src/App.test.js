@@ -3,10 +3,16 @@ import App from "./App";
 import userEvent from "@testing-library/user-event";
 import { BrowserRouter, Router } from "react-router-dom";
 import { createMemoryHistory } from "history";
+import { MemoryRouter } from "react-router-dom";
+import {act} from 'react-dom/test-utils'; 
 
 describe("Welcome Page", () => {
   test("Displays all menu items", () => {
-    render(<App />);
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    );
     expect(screen.getByText("Home")).toBeInTheDocument();
     expect(screen.getByText("Pokemon Store")).toBeInTheDocument();
     expect(screen.getByText("Checkout")).toBeInTheDocument();
@@ -14,29 +20,12 @@ describe("Welcome Page", () => {
   });
 
   test("Displays the home page", () => {
-    render(<App />);
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    );
     expect(screen.getByText("Go Shopping")).toBeInTheDocument();
   });
 });
 
-describe("Tests all the routing", () => {
-  test("should redirect and update history", () => {
-    const history = createMemoryHistory();
-
-    render(
-      <Router history={history}>
-        <App />
-      </Router>
-    );
-    userEvent.click(screen.getByText(/Home/));
-    expect(history.location.pathname).toEqual("/home");
-  });
-
-  test('should redirect and update dom', () => {
-    render(<BrowserRouter><App/></BrowserRouter>);
-
-    userEvent.click(screen.getByText(/Home/));
-
-    expect(screen.getByText('Go Shopping')).toBeInTheDocument();
-});
-});

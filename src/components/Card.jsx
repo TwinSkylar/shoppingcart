@@ -10,9 +10,9 @@ export default function Card({ pokemon }) {
      gameOver:  True if the game is over
     */
 
-  const { cardName, cardImg, cardPrice, product } = pokemon;
+  const { cardName, cardImg, cardPrice} = pokemon;
   return (
-    <Link to={`/product/${cardName}`} className="card" state={product}>
+    <Link to={`/product/${cardName}`} className="card" state={pokemon}>
       <button className="cardBtn">
         <img src={cardImg} alt={cardName}></img>
         <div className="productName">{cardName}</div>{" "}

@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Card from "./Card";
 import { useParams } from "react-router";
 import "./styles/store.css"
+import Product from "../pages/Product";
 const Store = () => {
   const [products, setProducts] = useState([
   ]);
@@ -32,6 +33,7 @@ const Store = () => {
           cardName: pokemon.name,
           cardImg: pokemon.sprites.front_default,
           cardPrice:  i ,
+          product: pokemon
         });
       }
       setProducts(pokemons);
@@ -50,5 +52,9 @@ const Store = () => {
     </div>
   );
 };
+
+const productdetails = ()=>{
+  return <Product/>
+}
 
 export default Store;

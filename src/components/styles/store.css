@@ -3,3 +3,11 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 1rem;
 }
+
+.store-container{
+    display:grid;
+    grid-template-columns: auto 1fr;
+    border: 2px black solid;
+    padding: 15px;
+    gap: 10px;
+}

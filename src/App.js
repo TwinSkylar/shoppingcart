@@ -1,33 +1,31 @@
 import "./App.css";
 import Header from "./components/Header";
 import Home from "./components/Home";
-import { Routes, Route } from "react-router-dom";
-import Shopping from "./components/Store";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import Store from "./components/Store";
 import Cart from "./components/Cart";
+import NotFound from "./components/NotFound";
+
+import { useEffect } from "react";
 
 function App() {
   return (
     <>
-        <Header />
-
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/store" element={<Shopping />} />
+        <Route path="/store">
+          <Route index element={<Store />} />
+          <Route path=":id" element={<Store />} />
+        </Route>
         <Route path="/checkout" element={<Cart />} />
         <Route path="/nav" element={<Header />} />
-        <Route path="*" element={<NoMatch />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );
 }
 
-function NoMatch() {
-  return (
-    <div>
-      <h2>404: Page Not Found</h2>
-      <p>There are no pokemon in this region</p>
-    </div>
-  );
-}
+
 
 export default App;

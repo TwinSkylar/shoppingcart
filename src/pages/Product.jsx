@@ -4,14 +4,16 @@ import { useLocation } from "react-router";
 import { QuantityPicker } from "react-qty-picker";
 import { useState } from "react";
 
-const Product = () => {
+const Product = (props) => {
   const { product, cardPrice } = useLocation().state;
-  const [total, setTotal] = useState(0);
+  const [qty, setQty] = useState(1);
   const productName = useParams();
 
   const handleChange = (value) => {
-    setTotal(value * cardPrice);
+    setQty(value);
   };
+
+  console.log (props.addToCart);
   return (
     <div className="product-details">
       <img
@@ -28,9 +30,9 @@ const Product = () => {
         );
       })}
       <div>Price: {cardPrice}</div>
-      <QuantityPicker onChange={handleChange} />
-      <div>Total: ${total}</div>
-      <button>Add to Cart</button>
+      <QuantityPicker onChange={handleChange} value={1}/>
+      <div>Total: ${qty*cardPrice}</div>
+      <button onClick={()=>props.addToCart(product,qty)}>Add to Cart</button>
     </div>
   );
 };

@@ -53,8 +53,4 @@ const Store = () => {
   );
 };
 
-const productdetails = ()=>{
-  return <Product/>
-}
-
 export default Store;

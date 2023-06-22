@@ -13,7 +13,6 @@ const Product = (props) => {
     setQty(value);
   };
 
-  console.log (props.addToCart);
   return (
     <div className="product-details">
       <img

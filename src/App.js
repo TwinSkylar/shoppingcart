@@ -7,15 +7,23 @@ import Cart from "./components/Cart";
 import NotFound from "./components/NotFound";
 import Product from "./pages/Product";
 import { useState } from "react";
+import uniqid from 'uniqid'; 
 import { useEffect } from "react";
+
+
 
 function App() {
 const [cart,setCart] = useState([]);
 
 const addToCart = (pokemon,qty)=>{
-  setCart(cart => [...cart, {pokemon: pokemon, quantity:qty}]);
+  setCart(cart => [...cart, {pokemon: pokemon, quantity:qty, id:uniqid()}]);
 }
 
+const removeFromCart =(id)=>{
+  console.log ('hit')
+  setCart(cart.filter(item=>item.id !==id));
+  console.log (cart + 'id ' + id);
+}
 
   return (
     <>
@@ -30,7 +38,7 @@ const addToCart = (pokemon,qty)=>{
           <Route index element={<Product addToCart={addToCart}/>} />
           <Route path=":name" element={<Product addToCart={addToCart}/>} />
         </Route>
-        <Route path="/checkout" element={<Cart />} />
+        <Route path="/checkout" element={<Cart cart={cart} removeFromCart={removeFromCart}/>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

@@ -2,6 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import  "./styles/header.css";
 
+  /*
+    Purpose:  A component that displays a navigation menu.
+    Parameters: 
+     cart: An array of objects containing the shopping cart items
+  */
 const Header = ({cart}) => {
     
   return (

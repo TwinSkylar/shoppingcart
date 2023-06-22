@@ -1,7 +1,9 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { Link} from "react-router-dom";
 
+/*
+    Purpose:  A page that displays the different categories for the store
+*/
 const StoreMenu = () => {
   return (
     <>
@@ -19,7 +21,6 @@ const StoreMenu = () => {
           </li>
         </ul>
       </nav>
-      <Outlet />
     </>
   );
 };

@@ -2,6 +2,9 @@ import React from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
 
+  /*
+    Purpose:  A webpage that displays when the user enters an invalid link.  Automatically redirects to the previous page after 3 seconds
+  */
 const NotFound = ()=> {
     const navigate = useNavigate();
     useEffect(() => {

@@ -1,6 +1,12 @@
 import React from "react";
 import CheckoutItem from "./CheckoutItem";
-import { useState } from "react";
+
+  /*
+    Purpose:  A webpage displaying all the items in the cart
+    Parameters: 
+     cart:  An array of objects containing each invididual cart items
+     removeFromCart:  A function to remove the cart items 
+  */
 
 const Cart = ({ cart,removeFromCart }) => {
   let total = 0;
@@ -30,9 +36,3 @@ const Cart = ({ cart,removeFromCart }) => {
 };
 
 export default Cart;
-
-/*{cart.map((pokemon) => {
-  return <Card key={pokemon.cardName} pokemon={pokemon} />;
-      <CheckoutItem name={pokemon.species.name} quantity={quantity} price={pokemon.held_items.id} id={id}/>
-
-})}*/

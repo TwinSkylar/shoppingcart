@@ -4,6 +4,13 @@ import { useLocation } from "react-router";
 import { QuantityPicker } from "react-qty-picker";
 import { useState } from "react";
 
+  /*
+    Purpose:  A page that displays product details
+    Parameters: 
+     props:
+      addToCart: A function that adds a product to the shopping cart
+  */
+
 const Product = (props) => {
   const { product, cardPrice } = useLocation().state;
   const [qty, setQty] = useState(1);

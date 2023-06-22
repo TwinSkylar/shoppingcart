@@ -20,9 +20,7 @@ const addToCart = (pokemon,qty)=>{
 }
 
 const removeFromCart =(id)=>{
-  console.log ('hit')
   setCart(cart.filter(item=>item.id !==id));
-  console.log (cart + 'id ' + id);
 }
 
   return (

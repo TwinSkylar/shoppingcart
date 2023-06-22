@@ -3,12 +3,12 @@ import "./styles/card.css";
 import { Link } from "react-router-dom";
 export default function Card({ pokemon }) {
   /*
-    Purpose:  Card component to display each individual card.
+    Purpose:  Card component to display each individual product.
     Parameters: 
-     card:  A card object which contains the information needed
-     chooseCard:  a callback function to handle the choice of a card
-     gameOver:  True if the game is over
-    */
+     cardName:  Product name
+     cardImg:  Product Image
+     cardPrice:  Price of the card
+  */
 
   const { cardName, cardImg, cardPrice} = pokemon;
   return (

@@ -8,7 +8,6 @@ import NotFound from "./components/NotFound";
 import Product from "./pages/Product";
 import { useState } from "react";
 import uniqid from 'uniqid'; 
-import { useEffect } from "react";
 
 
 
@@ -28,6 +27,7 @@ const removeFromCart =(id)=>{
       <Header cart={cart}/>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/shopingcart" element={<Home />} />
         <Route path="/store">
           <Route index element={<Store />} />
           <Route path=":id" element={<Store />} />
